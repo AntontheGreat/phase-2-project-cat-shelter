@@ -1,3 +1,18 @@
+# Cat Shelter
+
+### Overview
+Welcome to Cat Shelter, a react single page application that allows users to put a cat up for adoption, adopt a cat, and sort through all the cats availibe in our shelter.
+
+### Features
+* Put a cat up for adoption
+* Adopt a cat
+* Sort through cats by characteristics
+
+### How to Use
+* Fill out form with name, age, breed, and a picture.
+* Use sort feature to filter by name, age, and breed.
+* Once you've selected your feline friend, click the adopt button to take your cat home with you.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

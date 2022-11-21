@@ -1,5 +1,6 @@
 import React from "react";
 import howdy from "../assets/howdyCat.JPG";
+// import { NavLink } from "react-router-dom";
 
 
 const Nav = () => {
