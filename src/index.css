@@ -11,3 +11,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+
+.twirlyCat {
+  transition: all 3s ease-in-out;
+  display: inline;
+}
+
+.twirlyCat:hover {
+  transform: scale(1.5);
+}
+
+.nav {
+  margin-bottom: 2%;
+}
+
+.appLogo {
+  animation: appLogo-spin infinite 5s linear;
+  height: 100px;
+  transition: all .2s ease-in-out;
+}
+
+@keyframes appLogo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
