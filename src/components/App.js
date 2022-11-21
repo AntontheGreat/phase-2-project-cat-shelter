@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Nav from './Nav';
 import './App.css';
+import CatsContainer from './CatsContainer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </a>
       </header> */}
       <Nav />
+      <CatsContainer />
     </div>
   );
 }
