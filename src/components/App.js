@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import Home from "./Home";
 import About from "./About";
 import CatsContainer from './CatsContainer';
+import cats from "../kitty_data";
 import './App.css'; 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
       {/* // <CatList cats={cats} />
       // <NewCat onAddCat={addCat} />
       // <CatList cats={cats} onDeleteCat={deleteCat} onUpdateCat={updatedCats} /> */}
-      <CatsContainer />
+      <CatsContainer cat={cats}/>
     </div>
   );
 }
