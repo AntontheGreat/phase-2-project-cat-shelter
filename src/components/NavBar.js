@@ -3,7 +3,7 @@ import howdy from "../assets/howdyCat.JPG";
 // import { NavLink } from "react-router-dom";
 
 
-const Nav = () => {
+const NavBar = () => {
     return (
         <div className="nav">
             <span className="headerText">Cat Shelter</span>
@@ -17,4 +17,4 @@ const Nav = () => {
     );
 };
 
-export default Nav;
+export default NavBar;

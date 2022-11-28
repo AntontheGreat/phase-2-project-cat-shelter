@@ -1,28 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { Switch, Route } from "react-router-dom";
-import Nav from './Nav';
-import './App.css';
+// import NewCat from './NewCat';
+// import CatList from './CatList';
+import NavBar from './NavBar';
+import Home from "./Home";
+import About from "./About";
 import CatsContainer from './CatsContainer';
-import cats from "../"
+import './App.css'; 
 
 function App() {
+  // const [cats, setCats] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("/cats")
+  //     .then((r) => r.json())
+  //     .then(data => setCats(data.cats));
+  // }, [])
+
+  // function addCat(newCat) {
+  //   const updatedCats = [...cats, newCat]
+  //   setCats(updatedCats);
+  // }
+
+  // function deleteCat(id) {
+  //   const updatedCats = cats.filter(cat => cat.id !== id)
+  //   setCats(updatedCats)
+  // }
+
+  // function updatedCats(id, adopted) {
+  //   const updatedCats = cats.map(cat => {
+  //     if (cat.id === id) {
+  //       return { ...cat, adopted }
+  //     } else {
+  //       return cat
+  //     }
+  //   })
+  //   setCats(updatedCats)
+  // }
+
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Nav />
+      <NavBar />
+      <Home />
+      <About />
+      {/* // <CatList cats={cats} />
+      // <NewCat onAddCat={addCat} />
+      // <CatList cats={cats} onDeleteCat={deleteCat} onUpdateCat={updatedCats} /> */}
       <CatsContainer />
     </div>
   );

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import CatCardFront from "./CatCardFront";
 import CatCardBack from "./CatCardBack";
+import CatCardFront from "./CatCardFront";
 
 function CatCard({ cat }) {
-
+    
     const [showDetails, setShowDetails] = useState(false);
 
     function toggleCatDetails() {

@@ -1,7 +1,7 @@
 import React from "react";
 
 function CatCardBack({ cat }) {
-    
+
     const renderCatDetails=[]
 
     for (let key in cat) {
