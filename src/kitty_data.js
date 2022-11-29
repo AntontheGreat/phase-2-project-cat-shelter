@@ -4,7 +4,7 @@ const cats = [
         name: "Mr. Whiskers",
         age: "1",
         breed: "Bombay",
-        adopted: "Yes",
+        isAdopted: false,
         image: "https://static.wikia.nocookie.net/disney/images/8/8e/Whiskers_closeup.jpg"
       },
       {
@@ -12,7 +12,7 @@ const cats = [
         name: "Peter Purrer",
         age: "3",
         breed: "British Shorthair",
-        adopted: "Yes",
+        isAdopted: true,
         image: "https://assets-prd.ignimgs.com/2021/05/28/miles-morales-bodega-cat-suit-marvel-gallery-60b116708bba9-1-1622233414999.jpg"
       },
       {
@@ -20,7 +20,7 @@ const cats = [
         name: "Max",
         age: "1",
         breed: "Persian",
-        adopted: "Yes",
+        isAdopted: false,
         image: "https://vignette.wikia.nocookie.net/universe-of-smash-bros-lawl/images/d/d8/Mr-potato-head-toy-story.gif/revision/latest?cb=20151129131217"
       },
       {
@@ -28,7 +28,7 @@ const cats = [
         name: "Wait this isn't a cat",
         age: "4500",
         breed: "Sphynx",
-        adopted: "Yes",
+        isAdopted: true,
         image: "https://www.freeiconspng.com/uploads/slinky-png-transparent-1.png"
       },
     //   {
@@ -64,4 +64,6 @@ const cats = [
     //     "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png"
 ];
 // }  
-export default cats;
+const getNextId = ((id) => () => ++id)(3)
+
+export { cats, getNextId };

@@ -6,11 +6,14 @@ import NavBar from './NavBar';
 import Home from "./Home";
 import About from "./About";
 import CatsContainer from './CatsContainer';
-import cats from "../kitty_data";
+import CatForm from './CatForm';
+import { cats as catsArray } from "../kitty_data";
 import './App.css'; 
 
 function App() {
-  // const [cats, setCats] = useState([]);
+
+  const [cats, setCats] = useState(catsArray);
+  // console.log(cats)
 
   // useEffect(() => {
   //   fetch("/cats")
@@ -39,6 +42,10 @@ function App() {
   //   setCats(updatedCats)
   // }
 
+  function addCat(catObj) {
+    setCats([...cats, catObj])
+  }
+
   return (
     <div className="App">
       <NavBar />
@@ -47,6 +54,7 @@ function App() {
       {/* // <CatList cats={cats} />
       // <NewCat onAddCat={addCat} />
       // <CatList cats={cats} onDeleteCat={deleteCat} onUpdateCat={updatedCats} /> */}
+      <CatForm onAddCat={addCat} />
       <CatsContainer cat={cats}/>
     </div>
   );
