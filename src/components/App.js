@@ -7,55 +7,55 @@ import Home from "./Home";
 import About from "./About";
 import CatsContainer from './CatsContainer';
 import CatForm from './CatForm';
-import { cats as catsArray } from "../kitty_data";
+import CatCollection from "./CatCollection";
 import './App.css'; 
 
 function App() {
 
-  const [cats, setCats] = useState(catsArray);
+  const [cats, setCats] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/cats")
+      .then((r) => r.json())
+      .then(cats => setCats(cats))
+  }, [])
+  
   // console.log(cats)
 
-  // useEffect(() => {
-  //   fetch("/cats")
-  //     .then((r) => r.json())
-  //     .then(data => setCats(data.cats));
-  // }, [])
-
-  // function addCat(newCat) {
-  //   const updatedCats = [...cats, newCat]
-  //   setCats(updatedCats);
-  // }
-
-  // function deleteCat(id) {
-  //   const updatedCats = cats.filter(cat => cat.id !== id)
-  //   setCats(updatedCats)
-  // }
-
-  // function updatedCats(id, adopted) {
-  //   const updatedCats = cats.map(cat => {
-  //     if (cat.id === id) {
-  //       return { ...cat, adopted }
-  //     } else {
-  //       return cat
-  //     }
-  //   })
-  //   setCats(updatedCats)
-  // }
-
-  function addCat(catObj) {
-    setCats([...cats, catObj])
+  function addCat(newCat) {
+    const updatedCats = [...cats, newCat]
+    setCats(updatedCats);
   }
+
+//   function deleteCat(id) {
+//     const updatedCats = cats.filter(cat => cat.id !== id)
+//     setCats(updatedCats)
+//   }
+  
+//   function updateCat(id, adopted) {
+//     const updatedCats = cats.map(cat => {
+//       if (cat.id === id) {
+//         return { ...cat, adopted }
+//       } else {
+//         return cat
+//       }
+//     })
+//     // setCats(updatedCats)
+// }
 
   return (
     <div className="App">
       <NavBar />
+      <br />
       <Home />
+      <br />
       <About />
       {/* // <CatList cats={cats} />
       // <NewCat onAddCat={addCat} />
       // <CatList cats={cats} onDeleteCat={deleteCat} onUpdateCat={updatedCats} /> */}
       <CatForm onAddCat={addCat} />
-      <CatsContainer cat={cats}/>
+      <br />
+      <CatsContainer cat={cats} />
     </div>
   );
 }

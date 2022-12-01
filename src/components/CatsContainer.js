@@ -7,7 +7,9 @@ function CatsContainer({ cat }) {
         <CatCard key={index} cat={cat} />)
 
     return (
-        <div className="ui grid container">{renderCats}</div>
+        <div className="ui grid container">
+            {renderCats}
+        </div>
     )
 }
 

@@ -1,20 +1,29 @@
 import React, { useState } from "react";
-import { getNextId } from "../kitty_data";
 
 function CatForm({ onAddCat }) {
-
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
 
     function handleSubmit(event) {
         event.preventDefault()
-        const newCat = {
-            id: getNextId(),
+        const catObj = {
+            // id: getNextId(),
             name,
             image,
         }
 
-        onAddCat(newCat)
+        // onAddCat(newCat)
+
+        fetch("http://localhost:3000/cats", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(catObj),
+        })
+            .then(r => r.json())
+            .then(data => onAddCat(data.cat))
+        //    .catch(err => console.log(err))
     }
 
     return (
@@ -28,5 +37,7 @@ function CatForm({ onAddCat }) {
             </form>
         </div>
     )
+            
 }
+
 export default CatForm;
