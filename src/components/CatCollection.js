@@ -1,5 +1,4 @@
 import React from "react";
-import CatItem from "./CatItem";
 import CatCard from "./CatCard";
 
 function CatCollection({ cats }) {

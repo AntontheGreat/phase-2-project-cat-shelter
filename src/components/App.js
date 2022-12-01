@@ -27,21 +27,21 @@ function App() {
     setCats(updatedCats);
   }
 
-//   function deleteCat(id) {
-//     const updatedCats = cats.filter(cat => cat.id !== id)
-//     setCats(updatedCats)
-//   }
+  function deleteCat(id) {
+    const updatedCats = cats.filter(cat => cat.id !== id)
+    setCats(updatedCats)
+  }
   
-//   function updateCat(id, adopted) {
-//     const updatedCats = cats.map(cat => {
-//       if (cat.id === id) {
-//         return { ...cat, adopted }
-//       } else {
-//         return cat
-//       }
-//     })
-//     // setCats(updatedCats)
-// }
+  function updateCat(id, adopted) {
+    const updatedCats = cats.map(cat => {
+      if (cat.id === id) {
+        return { ...cat, adopted }
+      } else {
+        return cat
+      }
+    })
+    // setCats(updatedCats)
+}
 
   return (
     <div className="App">
@@ -55,7 +55,7 @@ function App() {
       // <CatList cats={cats} onDeleteCat={deleteCat} onUpdateCat={updatedCats} /> */}
       <CatForm onAddCat={addCat} />
       <br />
-      <CatsContainer cat={cats} />
+      <CatsContainer cat={cats} onDeleteCat={deleteCat} />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CatCardBack from "./CatCardBack";
 import CatCardFront from "./CatCardFront";
 
-function CatCard({ cat }) {
+function CatCard({ cat, onDeleteCat }) {
     
     const [showDetails, setShowDetails] = useState(false);
 
@@ -13,7 +13,7 @@ function CatCard({ cat }) {
     return (
         <div className="ui eight wide column" onClick={toggleCatDetails}>
             <div className="catTile">
-                {showDetails ? <CatCardBack cat={cat} /> : <CatCardFront cat={cat} />}
+                {showDetails ? <CatCardBack cat={cat} /> : <CatCardFront cat={cat} onDeleteCat={onDeleteCat} />}
             </div>
         </div>
     )

@@ -7,12 +7,9 @@ function CatForm({ onAddCat }) {
     function handleSubmit(event) {
         event.preventDefault()
         const catObj = {
-            // id: getNextId(),
             name,
             image,
         }
-
-        // onAddCat(newCat)
 
         fetch("http://localhost:3000/cats", {
             method: "POST",
@@ -23,7 +20,7 @@ function CatForm({ onAddCat }) {
         })
             .then(r => r.json())
             .then(data => onAddCat(data.cat))
-        //    .catch(err => console.log(err))
+           .catch(err => (err))
     }
 
     return (
