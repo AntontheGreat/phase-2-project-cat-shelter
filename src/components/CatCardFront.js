@@ -1,7 +1,8 @@
 import React from "react";
 
 function CatCardFront({ cat, onUpdateCat, onDeleteCat }) {
-    const { breed, id, adopted } = cat;
+    console.log(cat)
+    const { id } = cat;
 
     function handleDelete() {
         fetch(`http://localhost:3000/cats${id}`, {
@@ -15,7 +16,7 @@ function CatCardFront({ cat, onUpdateCat, onDeleteCat }) {
         <div>
             <h3>{cat.name}</h3>
             <img className="minCatTile" src={cat.image} alt="CatImage" />
-            {<button onClick={handleDelete}>Adopt</button>}
+            <button onClick={handleDelete}>Adopt</button>
         </div>
     )
 }

@@ -15,16 +15,6 @@
       "breed": "British Shorthair",
       "isAdopted": true,
       "image": "https://assets-prd.ignimgs.com/2021/05/28/miles-morales-bodega-cat-suit-marvel-gallery-60b116708bba9-1-1622233414999.jpg"
-    },
-    {
-      "name": "test",
-      "image": "",
-      "id": 3
-    },
-    {
-      "name": "test",
-      "image": "",
-      "id": 4
     }
   ]
 }

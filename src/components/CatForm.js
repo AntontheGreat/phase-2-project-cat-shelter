@@ -20,7 +20,6 @@ function CatForm({ onAddCat }) {
         })
             .then(r => r.json())
             .then(data => onAddCat(data.cat))
-           .catch(err => (err))
     }
 
     return (
@@ -33,8 +32,7 @@ function CatForm({ onAddCat }) {
                 <button type="submit">Add Pet</button>
             </form>
         </div>
-    )
-            
+    )        
 }
 
 export default CatForm;
