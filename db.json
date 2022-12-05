@@ -7,12 +7,12 @@
       "breed": "Bombay",
       "isAdopted": false,
       "image": "https://static.wikia.nocookie.net/disney/images/8/8e/Whiskers_closeup.jpg"
-    },
+  },
     {
       "id": 2,
       "name": "Peter Purrer",
       "age": 3,
-      "breed": "British Shorthair",
+      "weight": "10",
       "isAdopted": true,
       "image": "https://assets-prd.ignimgs.com/2021/05/28/miles-morales-bodega-cat-suit-marvel-gallery-60b116708bba9-1-1622233414999.jpg"
     }

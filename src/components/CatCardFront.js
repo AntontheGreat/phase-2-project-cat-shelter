@@ -1,22 +1,17 @@
 import React from "react";
 
-function CatCardFront({ cat, onUpdateCat, onDeleteCat }) {
-    console.log(cat)
+function CatCardFront({ cat, onDeleteClick }) {
     const { id } = cat;
 
-    function handleDelete() {
-        fetch(`http://localhost:3000/cats${id}`, {
-            method: "DELETE"
-        })
-        onDeleteCat(id)
+    function handleDeleteClick() {
+        onDeleteClick(id);
     }
-
 
     return (
         <div>
             <h3>{cat.name}</h3>
             <img className="minCatTile" src={cat.image} alt="CatImage" />
-            <button onClick={handleDelete}>Adopt</button>
+            <button onClick={handleDeleteClick}>Adopt</button>
         </div>
     )
 }
