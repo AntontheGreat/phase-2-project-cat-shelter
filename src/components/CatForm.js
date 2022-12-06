@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CatForm({ onAddCat, setCats }) {
+function CatForm() {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [weight, setWeight] = useState("");
@@ -20,8 +20,7 @@ function CatForm({ onAddCat, setCats }) {
         })
             .then(r => r.json())
             .then(data => {
-                console.log(data.cat)
-                onAddCat(data.cat)})
+                parseInt(data.cat)})
     }
 
     return (

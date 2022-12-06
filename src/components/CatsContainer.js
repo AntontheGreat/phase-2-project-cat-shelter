@@ -21,7 +21,7 @@ function CatContainer() {
         });
     }
 
-    const catCards = cats?.map((cat) => (
+    const catCards = cats.map((cat) => (
         <CatCard
             cat={cat}
             key={cat.id}

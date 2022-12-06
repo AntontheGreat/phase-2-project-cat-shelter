@@ -18,7 +18,7 @@ function CatCard({ cat, id, name, age, weight, image, onDeleteClick }) {
     return (
         <div className="ui eight wide column" onClick={toggleCatDetails}>
             <div className="catTile">
-                {showDetails ? <CatCardBack cat={cat} age={age} weight={weight} image={image} /> : <CatCardFront key={cat.id} cat={cat} onDeleteClick={handleDeleteClick} />}
+                {showDetails ? <CatCardBack cat={cat} age={age} weight={weight} image={image} /> : <CatCardFront key={cat.id} name={cat.name} cat={cat} onDeleteClick={handleDeleteClick} />}
             </div>
         </div>
     )
