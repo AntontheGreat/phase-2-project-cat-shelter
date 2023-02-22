@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CatForm() {
+function CatForm(cats, addCats) {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [weight, setWeight] = useState("");
@@ -8,7 +8,7 @@ function CatForm() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        const formData = {
+        const newCat = {
             cat: { name, age, weight, image }
         }
         fetch("http://localhost:3000/cats", {
@@ -16,24 +16,25 @@ function CatForm() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(newCat),
         })
             .then(r => r.json())
             .then(data => {
-                parseInt(data.cat)})
+                addCats({ ...cats, data });
+            })
     }
 
     return (
-        <div className="card">
+        <div className="cat-form">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
 
                 <label htmlFor="age">Age:</label>
-                <input type="text" id="age" value={age} onChange={e => setAge(e.target.value)} />
+                <input type="number" id="age" value={age} onChange={e => setAge(e.target.value)} />
 
                 <label htmlFor="weight">Weight:</label>
-                <input type="text" id="weight" value={weight} onChange={e => setWeight(e.target.value)} />
+                <input type="number" id="weight" value={weight} onChange={e => setWeight(e.target.value)} />
 
                 <label htmlFor="image">Image</label>
                 <input type="text" id="image" value={image} onChange={e => setImage(e.target.value)} />

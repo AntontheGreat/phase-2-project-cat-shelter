@@ -12,7 +12,7 @@ function CatCardBack({ cat }) {
     return (
         <div>
             <ul>
-            {renderCatDetails}
+                {renderCatDetails}
             </ul>
         </div>
     )

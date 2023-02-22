@@ -3,13 +3,21 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import Home from "./Home";
 import About from "./About";
-import CatContainer from './CatsContainer';
 import CatForm from './CatForm';
 import './App.css'; 
+import CatContainer from './CatContainer';
+
+const API = "http://localhost:3001/cats"
 
 function App() {
-  const [cats, setCats] = useState([]);
   const [page, setPage] = useState("/");
+  const [cats, setCats] = useState([]);
+
+  useEffect(() => {
+    fetch(API)
+     .then(res => res.json())
+     .then(setCats)
+  }, []);
 
   return (
     <div className="App">
@@ -17,14 +25,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/cats" element={<CatContainer cats={cats} />}>
-            <Route
-              path="/cats/:id"
-              element={<CatForm setCats={setCats} cat={cats} />}
-            />
-          </Route>
-          <Route path="*" element={<h1>404 not found</h1>}>
-          </Route>
+        </Routes>
+        <CatForm />
+        <Routes>
+          <Route path="/cats" element={<CatContainer cats={cats} />} />
         </Routes>
     </div>
   );
