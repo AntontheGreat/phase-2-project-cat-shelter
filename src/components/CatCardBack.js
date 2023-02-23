@@ -12,5 +12,3 @@ function CatCardBack({ cat }) {
 }
 
 export default CatCardBack;
-
-// age, weight, gender, is adopted

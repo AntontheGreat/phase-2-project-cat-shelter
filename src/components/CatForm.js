@@ -27,7 +27,7 @@ function CatForm({ handleNewCat }) {
             },
             body: JSON.stringify(newCat),
         })
-            .then(r => r.json())
+            .then(res => res.json())
             .then(freshBatchCat => handleNewCat(freshBatchCat))
     }
 
