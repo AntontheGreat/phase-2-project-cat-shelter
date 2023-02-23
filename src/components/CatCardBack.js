@@ -2,20 +2,15 @@ import React from "react";
 
 function CatCardBack({ cat }) {
 
-    const renderCatDetails=[]
-
-    for (let key in cat) {
-        if (key !== "name" && key !== "image")
-        renderCatDetails.push(<p>{`${key}: ${cat[key]}`}</p>)
-    }
-
     return (
-        <div>
-            <ul>
-                {renderCatDetails}
-            </ul>
+        <div className="cardBack">
+            <p>Age: {cat.age}</p>
+            <p>Weight: {cat.weight}</p>
+            <p>Gender: {cat.gender}</p>
         </div>
     )
 }
 
 export default CatCardBack;
+
+// age, weight, gender, is adopted

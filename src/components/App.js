@@ -5,9 +5,9 @@ import Home from "./Home";
 import About from "./About";
 import CatForm from './CatForm';
 import './App.css'; 
-import CatContainer from './CatContainer';
+import CatContainer from './CatContianer';
 
-const API = "http://localhost:3001/cats"
+const API = "http://localhost:3000/cats"
 
 function App() {
   const [page, setPage] = useState("/");
@@ -16,8 +16,12 @@ function App() {
   useEffect(() => {
     fetch(API)
      .then(res => res.json())
-     .then(setCats)
+     .then(setCats);
   }, []);
+
+  const handleNewCat = (freshBatchCat) => {
+    setCats([freshBatchCat, ...cats]);
+  }
 
   return (
     <div className="App">
@@ -26,7 +30,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
         </Routes>
-        <CatForm />
+        <CatForm handleNewCat={handleNewCat} />
         <Routes>
           <Route path="/cats" element={<CatContainer cats={cats} />} />
         </Routes>

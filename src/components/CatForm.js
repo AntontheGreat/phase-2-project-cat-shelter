@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 
-function CatForm(cats, addCats) {
+const API = "http://localhost:3000/cats"
+
+function CatForm({ handleNewCat }) {
     const [name, setName] = useState("");
-    const [age, setAge] = useState("");
-    const [weight, setWeight] = useState("");
+    const [age, setAge] = useState(0);
+    const [gender, setGender] = useState("");
+    const [weight, setWeight] = useState(0);
     const [image, setImage] = useState("");
 
-    function handleSubmit(event) {
-        event.preventDefault()
-        const newCat = {
-            cat: { name, age, weight, image }
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        let newCat = {
+            name: name,
+            age: age,
+            gender: gender,
+            weight: weight,
+            image: image
         }
-        fetch("http://localhost:3000/cats", {
+
+        fetch(API, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -19,25 +28,27 @@ function CatForm(cats, addCats) {
             body: JSON.stringify(newCat),
         })
             .then(r => r.json())
-            .then(data => {
-                addCats({ ...cats, data });
-            })
+            .then(freshBatchCat => handleNewCat(freshBatchCat))
     }
 
     return (
         <div className="cat-form">
-            <form onSubmit={handleSubmit}>
+            <h3>Put up for adoption</h3>
+            <form onSubmit={(e) => {handleSubmit(e)}}>
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
+                <input type="text" id="name" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
 
                 <label htmlFor="age">Age:</label>
-                <input type="number" id="age" value={age} onChange={e => setAge(e.target.value)} />
+                <input type="number" id="age" placeholder="Age" value={age} onChange={e => setAge(e.target.value)} />
+
+                <label htmlFor="age">Gender:</label>
+                <input type="text" id="gender" placeholder="Gender" value={gender} onChange={e => setGender(e.target.value)} />
 
                 <label htmlFor="weight">Weight:</label>
-                <input type="number" id="weight" value={weight} onChange={e => setWeight(e.target.value)} />
+                <input type="number" id="weight" placeholder="Weight" value={weight} onChange={e => setWeight(e.target.value)} />
 
                 <label htmlFor="image">Image</label>
-                <input type="text" id="image" value={image} onChange={e => setImage(e.target.value)} />
+                <input type="text" id="image" placeholder="Image" value={image} onChange={e => setImage(e.target.value)} />
 
                 <button type="submit">Add Cat</button>
             </form>
