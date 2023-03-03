@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import Home from "./Home";
 import About from "./About";
-import CatForm from './CatForm';
 import CatContainer from './CatContianer';
 
 const API = "http://localhost:3000/cats"
@@ -19,7 +18,7 @@ function App() {
   }, []);
 
   function handleNewCat(freshBatchCat) {
-    setCats([freshBatchCat, ...cats]);
+    setCats([...cats, freshBatchCat]);
   }
 
   function handleAdoptCat(id) {
@@ -27,17 +26,14 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <NavBar onChangePage={setPage} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-        <CatForm handleNewCat={handleNewCat} />
-        <Routes>
-          <Route path="/cats" element={<CatContainer cats={cats} onAdoptCat={handleAdoptCat} />} />
-        </Routes>
-    </div>
+      <div className="App">
+        <NavBar onChangePage={setPage} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/cats" element={<CatContainer cats={cats} onAdoptCat={handleAdoptCat} handleNewCat={handleNewCat}  />} />
+          </Routes>
+      </div>
   );
 }
 

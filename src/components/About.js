@@ -1,9 +1,10 @@
 import React from "react";
 
-function About ({ bio }) {
+function About() {
     return (
         <div id="about">
-            <h2>About me</h2>
+            <h1>About me</h1>
+            <p>Cat Shelter is a React SPA for putting cats up for adoption and adopting a cat. To put up a cat for adoption please click the Cats route above and fill out the form.</p>
         </div>
     );
 }

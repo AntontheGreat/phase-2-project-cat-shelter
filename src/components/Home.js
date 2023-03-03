@@ -1,7 +1,7 @@
 import React from "react";
 import howdy from "../assets/howdyCat.JPG";
 
-function Home({ }) {
+function Home() {
     return (
         <div id="home">
             <h1>
