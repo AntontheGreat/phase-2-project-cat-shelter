@@ -9,21 +9,6 @@ const API = "http://localhost:3000/cats"
 
 function App() {
   const [page, setPage] = useState("/");
-  const [cats, setCats] = useState([]);
-
-  useEffect(() => {
-    fetch(API)
-     .then(res => res.json())
-     .then(setCats);
-  }, []);
-
-  function handleNewCat(freshBatchCat) {
-    setCats([...cats, freshBatchCat]);
-  }
-
-  function handleAdoptCat(id) {
-    setCats(cats.filter(cat => cat.id !== id))
-  }
 
   return (
       <div className="App">
@@ -31,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/cats" element={<CatContainer cats={cats} onAdoptCat={handleAdoptCat} handleNewCat={handleNewCat}  />} />
+            <Route path="/cats" element={<CatContainer />} />
           </Routes>
       </div>
   );

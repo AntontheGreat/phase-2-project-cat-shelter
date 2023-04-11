@@ -3,6 +3,8 @@
     {
       "id": 1,
       "name": "Mr. Whiskers",
+      "upvotes": 120,
+      "downvotes": 3,
       "age": 1,
       "gender": "male",
       "weight": "20",
@@ -11,6 +13,8 @@
     {
       "id": 2,
       "name": "Peter Purrer",
+      "upvotes": 5000,
+      "downvotes": 0,
       "age": 3,
       "gender": "male",
       "weight": "10",
